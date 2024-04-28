@@ -25,11 +25,10 @@ const arrayOfObjects = [
 
 console.log(customFilterUnique(arrayOfObjects, obj => obj.name));
 
-
-
 //Task 2: Array Chunking
 function chunkArray (array, chunk) {
   let res = [];
+
   for (let i = 0; i < array.length; i += chunk) {
     res.push(array.slice(i, i + chunk));
   }
@@ -81,4 +80,23 @@ function getArrayUnion (array1, array2) {
   return res;
 }
 
-console.log(getArrayUnion([1,2,3,4,5,1], [1,5,3,7,7, 4]));
+//Task 5: Array Performance Analysis
+//Use the measureArrayPerformance function to compare the performance of built-in array methods (map, filter, reduce, etc.) against your custom array manipulation functions.
+function measureArrayPerformance (func, array) {
+  let start = performance.now();
+  func(array);
+  let finish = performance.now();
+  return (finish - start);
+}
+
+function measureArrayPerformance2 (func, callback, array) {
+  let start = performance.now();
+  func(array,callback);
+  let finish = performance.now();
+  return (finish - start);
+}
+
+const arr = [1, 2, 4, 5, 6, 7];
+
+console.log(measureArrayPerformance2(customFilterUnique, element => element > 2, arr));
+console.log(measureArrayPerformance(element => element > 2, arr));
