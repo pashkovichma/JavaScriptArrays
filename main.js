@@ -48,3 +48,37 @@ function customShuffle(array) {
 
   return result;
 }
+
+//Task 4: Array Intersection and Union
+function getArrayIntersection (array1, array2) {
+  let res = [];
+  for (element of array1) {
+    if (array2.includes(element)) {
+      res.push(element);
+    }
+  }
+  return res;
+}
+
+function getArrayUnion (array1, array2) {
+  let res = [];
+  let set = new Set;
+
+  for (element of array1) {
+    if (!set.has(element)) {
+      set.add(element);
+      res.push(element);
+    }
+  }
+
+  for (element of array2) {
+    if (!set.has(element)) {
+      set.add(element);
+      res.push(element);
+    }
+  }
+
+  return res;
+}
+
+console.log(getArrayUnion([1,2,3,4,5,1], [1,5,3,7,7, 4]));
