@@ -81,7 +81,6 @@ function getArrayUnion (array1, array2) {
 }
 
 //Task 5: Array Performance Analysis
-//Use the measureArrayPerformance function to compare the performance of built-in array methods (map, filter, reduce, etc.) against your custom array manipulation functions.
 function measureArrayPerformance (func, array) {
   let start = performance.now();
   func(array);
