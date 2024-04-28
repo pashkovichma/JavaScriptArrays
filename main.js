@@ -24,3 +24,15 @@ const arrayOfObjects = [
 ];
 
 console.log(customFilterUnique(arrayOfObjects, obj => obj.name));
+
+
+
+//Task 2: Array Chunking
+function chunkArray (array, chunk) {
+  let res = [];
+  for (let i = 0; i < array.length; i += chunk) {
+    res.push(array.slice(i, i + chunk));
+  }
+
+  return res;
+}
