@@ -2,8 +2,6 @@
 function customFilterUnique (array, callback) {
   let filteredArray = [];
   let arrayAfterCallback = [];
-  // let filteredSet = new Set();
-  // let nonUniques = new Set();
 
   array.forEach ( item => {
     arrayAfterCallback.push(callback(item));
