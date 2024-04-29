@@ -1,29 +1,33 @@
 //Task 1: Advanced Array Filtering
 function customFilterUnique (array, callback) {
   let filteredArray = [];
-  let filteredSet = new Set;
+  let arrayAfterCallback = [];
+  // let filteredSet = new Set();
+  // let nonUniques = new Set();
+
+  array.forEach ( item => {
+    arrayAfterCallback.push(callback(item));
+  })
 
   for (let i = 0; i < array.length; i++) {
-    const current = callback(array[i]);
-
-    if (!filteredSet.has(current)){
+    if (arrayAfterCallback.indexOf(arrayAfterCallback[i]) === arrayAfterCallback.lastIndexOf(arrayAfterCallback[i])) {
       filteredArray.push(array[i]);
-      filteredSet.add(current);
     }
   }
   
   return filteredArray;
 }
 
-const arrayOfObjects = [
-  { name: "a", cost: 1 },
-  { name: "a", cost: 2  },
-  { name: "b", cost: 3  },
-  { name: "b", cost: 4  },
-  { name: "d", cost: 5  }
+const arr1 = [
+  { id: 1, name: 'test' },
+  { id: 2, name: 'foo' },
+  { id: 3, boo: 3 },
+  { id: 2, isAdmin: false },
 ];
+const arr2 = [1, 2, 'a', 'b', 2, 'b', 3];
 
-console.log(customFilterUnique(arrayOfObjects, obj => obj.name));
+console.log(customFilterUnique(arr1, el => el.id));
+console.log(customFilterUnique(arr2, el => el));
 
 //Task 2: Array Chunking
 function chunkArray (array, chunk) {
