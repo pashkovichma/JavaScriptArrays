@@ -52,18 +52,19 @@ function customShuffle(array) {
 
 //Task 4: Array Intersection and Union
 function getArrayIntersection (array1, array2) {
-  let res = [];
+  let res = new Set();
+  let set2 = new Set(array2);
   for (element of array1) {
-    if (array2.includes(element)) {
-      res.push(element);
+    if (set2.has(element)) {
+      res.add(element);
     }
   }
-  return res;
+  return Array.from(res);
 }
 
 function getArrayUnion (array1, array2) {
   let res = [];
-  let set = new Set;
+  let set = new Set();
 
   for (element of array1) {
     if (!set.has(element)) {
